@@ -16,6 +16,18 @@
     "data": {
       "type": "string"
     },
+    "temp": {
+      "type": "string"
+    },
+    "hum": {
+      "type": "string"
+    },
+    "lum": {
+      "type": "string"
+    },
+    "voltage": {
+      "type": "string"
+    },
     "id": {
       "type": "string",
       "id": true,
