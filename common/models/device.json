@@ -1,0 +1,29 @@
+{
+  "name": "device",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "required": true
+    },
+    "pac": {
+      "type": "string"
+    },
+    "creationDate": {
+      "type": "date"
+    },
+    "lastMessage": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
