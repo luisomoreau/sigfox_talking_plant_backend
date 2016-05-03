@@ -8,13 +8,13 @@
   },
   "properties": {
     "time": {
-      "type": "date"
+      "type": "string"
     },
     "device": {
-      "type": "object"
+      "type": "string"
     },
     "data": {
-      "type": "object"
+      "type": "string"
     },
     "id": {
       "type": "string",
