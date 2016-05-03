@@ -19,7 +19,6 @@
     "id": {
       "type": "string",
       "id": true,
-      "required": true,
       "generate": true
     }
   },
