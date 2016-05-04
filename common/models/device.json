@@ -12,14 +12,18 @@
       "id": true,
       "required": true
     },
-    "pac": {
+    "lastMessage": {
+      "type": "date",
+      "defaultFn" : "now"
+    },
+    "category":{
       "type": "string"
     },
-    "creationDate": {
-      "type": "date"
+    "name":{
+      "type": "string"
     },
-    "lastMessage": {
-      "type": "date"
+    "board":{
+      "type": "string"
     }
   },
   "validations": [],
