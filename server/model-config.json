@@ -24,5 +24,11 @@
     "public": true,
     "$promise": {},
     "$resolved": true
+  },
+  "randomTwit": {
+    "dataSource": "db",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }

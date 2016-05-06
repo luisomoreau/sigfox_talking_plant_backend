@@ -1,5 +1,5 @@
 {
-  "name": "device",
+  "name": "randomTwit",
   "base": "PersistedModel",
   "strict": false,
   "idInjection": false,
@@ -8,22 +8,19 @@
   },
   "properties": {
     "id": {
-      "type": "string",
+      "type": "number",
       "id": true,
+      "generate": true
+    },
+    "username": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string",
       "required": true
     },
-    "lastMessage": {
-      "type": "date",
-      "defaultFn": "now"
-    },
-    "category": {
-      "type": "string"
-    },
-    "name": {
-      "type": "string"
-    },
-    "board": {
-      "type": "string"
+    "tags": {
+      "type": "array"
     }
   },
   "validations": [],

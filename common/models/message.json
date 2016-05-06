@@ -9,7 +9,7 @@
   "properties": {
     "time": {
       "type": "date",
-      "defaultFn" : "now"
+      "defaultFn": "now"
     },
     "device": {
       "type": "string"
