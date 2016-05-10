@@ -1,6 +1,21 @@
 var Twitter = require('twitter');
 
 module.exports = function(Message) {
+  var app = require('../../server/server');
+
+  Message.observe('loaded', function(ctx, next) {
+    var Twit = app.models.RandomTwit;    // works!
+    //console.log(Twit);
+    Twit.find(function (err,data) {
+      if (err){
+        console.log(err)
+      }else{
+        console.log(data);
+        next();
+      }
+    })
+
+  });
 
   var client = new Twitter({
     consumer_key: 'HPYbuuolFJHKEWkaejpiDKBNf',
