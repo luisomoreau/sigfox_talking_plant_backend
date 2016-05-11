@@ -31,19 +31,23 @@ module.exports = function(Message) {
   // client.stream(path, params, callback);
 
   Message.afterRemote('create', function (ctx, message, next){
-    console.log('> testing afterRemote function');
-    console.log('time : '+message.time);
-    console.log('device id : '+message.device);
-    console.log('data : '+message.data);
-    console.log('temp : '+message.temp);
-    console.log('lum : '+message.lum);
-    console.log('hum : '+message.hum);
-    console.log('voltage : '+message.voltage);
+    // console.log('> testing afterRemote function');
+    // console.log('time : '+message.time);
+    // console.log('device id : '+message.device);
+    // console.log('data : '+message.data);
+    // console.log('temp : '+message.temp);
+    // console.log('lum : '+message.lum);
+    // console.log('hum : '+message.hum);
+    // console.log('voltage : '+message.voltage);
+    var date = new Date(message.time);
+    var hours = date.getHours() + (date.getTimezoneOffset() / 60) -1;
+    console.log("hours :"+hours);
     var statuses = [];
     if(message.temp<15){
       statuses.push("I'm feeling a bit cold... "+message.temp+" °C. https://t.co/qblek65GFk");
+    }
+    if(message.temp<10){
       statuses.push("It's freezing in here..."+message.temp+" °C. https://t.co/qblek65GFk");
-
     }
     if(message.hum<10){
       statuses.push("Could anyone bring me water ? I'm below "+message.hum+" % of water. https://t.co/qblek65GFk");
@@ -53,9 +57,22 @@ module.exports = function(Message) {
       statuses.push("Wow it's hot in here... "+message.temp+" °C. https://t.co/qblek65GFk");
       statuses.push("It's warm in the office "+message.temp+" °C. https://t.co/qblek65GFk");
     }
+    if(hours==9){
+      statuses.push("Good morning everyone. It's "+message.temp+" °C in the office! https://t.co/qblek65GFk");
+    }
+    if(hours==13&&message.hum<15){
+      statuses.push("Enjoy your meal, oh and can anyone bring me some water when you come back please ? I'm below "+message.hum+" % of water... https://t.co/qblek65GFk");
+      statuses.push("I know you don't like to be disturb you Humans when you are eating but can anyone give me water ? "+message.hum+" left. https://t.co/qblek65GFk");
+    }
+    if(hours==12&&message.temp>27){
+      statuses.push("Time for a salad with this temperature "+message.temp+" °C... https://t.co/qblek65GFk");
+    }
+    if(hours==23&&message.lum>70){
+      statuses.push("I think someone forgot to turn off the light... It's still very bright in here "+message.lum+" %. https://t.co/qblek65GFk");
+    }
     var length = statuses.length;
     console.log(length);
-    
+
     if(length==0){
       console.log("No corresponding status...")
     }else{
@@ -63,15 +80,16 @@ module.exports = function(Message) {
       console.log(random);
 
       var status = statuses[random];
-      console.log(status);
+      console.log("Status: "+status+" - Length : "+status.length);
+
       client.post('statuses/update', {status: status},  function(error, tweet, response){
           if(error) console.log(error);
-          console.log(tweet);  // Tweet body.
-          console.log(response);  // Raw response object.
+          // console.log(tweet);  // Tweet body.
+          // console.log(response);  // Raw response object.
         });
     }
 
-  
+
     next();
   });
 
