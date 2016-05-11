@@ -70,6 +70,10 @@ module.exports = function(Message) {
     if(hours==23&&message.lum>70){
       statuses.push("I think someone forgot to turn off the light... It's still very bright in here "+message.lum+" %. https://t.co/qblek65GFk");
     }
+    //disable the twits at night
+    if(hours<8){
+      statuses = [];
+    }
     var length = statuses.length;
     console.log(length);
 
