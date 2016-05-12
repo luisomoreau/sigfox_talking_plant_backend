@@ -40,7 +40,7 @@ module.exports = function(Message) {
     // console.log('hum : '+message.hum);
     // console.log('voltage : '+message.voltage);
     var date = new Date(message.time);
-    var hours = date.getHours() + (date.getTimezoneOffset() / 60) -1;
+    var hours = date.getHours();// + (date.getTimezoneOffset() / 60) -1;
     console.log("hours :"+hours);
     var statuses = [];
     if(message.temp<15){
