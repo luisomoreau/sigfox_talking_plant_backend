@@ -62,13 +62,15 @@ module.exports = function(Message) {
     }
     if(hours==13&&message.hum<15){
       statuses.push("Enjoy your meal, oh and can anyone bring me some water when you come back please ? I'm below "+message.hum+" % of water... https://t.co/qblek65GFk");
-      statuses.push("I know you don't like to be disturb you Humans when you are eating but can anyone give me water ? "+message.hum+" left. https://t.co/qblek65GFk");
+      statuses.push("I know you don't like to be disturb you Humans when you are eating but can anyone give me water ? "+message.hum+" % left. https://t.co/qblek65GFk");
     }
     if(hours==12&&message.temp>27){
       statuses.push("Time for a salad with this temperature "+message.temp+" °C... https://t.co/qblek65GFk");
+      statuses.push("Wow you probably won't eat a fondue savoyarde with this temperature "+message.temp+" °C... https://t.co/qblek65GFk");
     }
     if(hours==23&&message.lum>70){
       statuses.push("I think someone forgot to turn off the light... It's still very bright in here "+message.lum+" %. https://t.co/qblek65GFk");
+      statuses.push("Is someone still in the office ?... It's still very bright in here "+message.lum+" %. https://t.co/qblek65GFk");
     }
     //disable the twits at night
     if(hours<8){
